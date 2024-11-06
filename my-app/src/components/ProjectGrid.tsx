@@ -18,7 +18,12 @@ export interface Project {
 }
 
 
-const ProjectList: React.FC = () => {
+const ProjectGrid: React.FC = () => {
+
+    const scrollToTop = () => {
+        window.scrollTo(0, 0); // Scroll to the top of the page
+      };
+      
     return (
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {projectData.map((project, index) => (
@@ -26,9 +31,16 @@ const ProjectList: React.FC = () => {
             key={index}
             className="bg-white shadow-xl rounded-lg p-6 transition-transform duration-300 transform hover:scale-105"
           >
+
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
+
+            {/* TODO: Add this to Project object e.g. previewImage */}
+            {project.id === 1 && (
+            <img src="/images/Animal_Desktop.png" className="mb-4" alt="Desktop" />
+            )}
+
             <p className="text-gray-600 mb-4">{project.description}</p>
-            
+
             {/* Logos */}
             <div className="flex space-x-4 mb-4">
               {project.logos?.map((logo, logoIndex) => (
@@ -38,7 +50,7 @@ const ProjectList: React.FC = () => {
               ))}
             </div>
   
-            <Link to={`/project/${project.id}`} className="text-blue-500 hover:underline">
+            <Link to={`/project/${project.id}`} onClick={scrollToTop} className="text-blue-500 hover:underline">
             View Project
           </Link>
           </div>
@@ -46,4 +58,4 @@ const ProjectList: React.FC = () => {
       </div>
     );
   }
-export default ProjectList;
+export default ProjectGrid;

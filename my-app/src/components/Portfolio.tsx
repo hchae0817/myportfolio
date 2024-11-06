@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LanguageGrid from './LanguageGrid';
 import Wave from './ConnectSection';
-import ProjectList from './Project';
+import ProjectGrid from './ProjectGrid';
 
 const Portfolio: React.FC = () => {
 
@@ -70,7 +70,7 @@ const Portfolio: React.FC = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold text-gray-800">My Work</h2>
                     <div className="mt-10">
-                        <ProjectList/>
+                        <ProjectGrid/>
                     </div>
                 </div>
             </section>

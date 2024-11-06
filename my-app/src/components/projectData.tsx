@@ -1,4 +1,4 @@
-import { Project } from "./Project";
+import { Project } from "./ProjectGrid";
 
 export const projectData = [
     {
