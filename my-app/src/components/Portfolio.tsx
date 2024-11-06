@@ -1,29 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import LanguageGrid from './LanguageGrid';
 import Wave from './ConnectSection';
-
-const projects = [
-    {
-        title: 'Project One',
-        description: 'A brief description of Project One. Highlight key features and technologies used.',
-        link: '#',
-    },
-    {
-        title: 'Project Two',
-        description: 'A brief description of Project Two. Highlight key features and technologies used.',
-        link: '#',
-    },
-    {
-        title: 'Project Three',
-        description: 'A brief description of Project Three. Highlight key features and technologies used.',
-        link: '#',
-    },
-    {
-        title: 'Project Four',
-        description: 'A brief description of Project Four. Highlight key features and technologies used.',
-        link: '#',
-    },
-];
+import ProjectList from './Project';
 
 const Portfolio: React.FC = () => {
 
@@ -53,8 +31,7 @@ const Portfolio: React.FC = () => {
 
     return (
         <div className="bg-gray-100">
-{/* 
-             <Wave/> */}
+            {/*  <Wave/> */}
 
             {/* Welcome Section */}
             <section className="h-screen flex items-center justify-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4">
@@ -93,32 +70,16 @@ const Portfolio: React.FC = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold text-gray-800">My Work</h2>
                     <div className="mt-10">
-                        {projects.map((project, index) => (
-                            <div
-                                key={index}
-                                className={`mt-10 ${index % 2 === 0 ? 'flex flex-row' : 'flex flex-row-reverse'} transition-all duration-700`}
-                            >
-                                <div className="w-full md:w-1/2 p-4">
-                                    <div className="bg-white shadow-xl rounded-lg p-6 transition-transform duration-300 transform hover:scale-105">
-                                        <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
-                                        <p className="text-gray-600 mb-4">{project.description}</p>
-                                        <a href={project.link} className="text-blue-500 hover:underline">
-                                            View Project
-                                        </a>
-                                    </div>
-                                </div>
-                                <div className="w-full md:w-1/2 p-4">
-                                    <div className="bg-gray-200 h-64 rounded-lg"> {/* Placeholder for images/screenshots */}</div>
-                                </div>
-                            </div>
-                        ))}
+                        <ProjectList/>
                     </div>
                 </div>
             </section>
+
+
             {/* Skills Section */}
             <section className="py-20 px-8 bg-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <LanguageGrid /> {/* Add this here */}
+                    <LanguageGrid /> 
                 </div>
             </section>
 
