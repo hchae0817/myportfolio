@@ -1,22 +1,15 @@
-import React, { Children, ReactNode, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { projectData } from '../projectData';
+import React, { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavHome from '../NavHome';
 import { Project } from '../ProjectGrid';
 
 interface BaseProjectProps {
     children?: ReactNode; // Accept children as a prop
+    project: Project
 }
 
-const BaseProject: React.FC<BaseProjectProps> = ({ children }) => {
-
-    const { id } = useParams<{ id: string }>(); // Get project ID from URL params
-    const project = projectData.find((proj) => proj.id.toString() === id);
+const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
     const navigate = useNavigate();
-    if (!project) {
-        return <div>Project not found.</div>; // Handle case when the project is not found
-    }
-
 
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col">

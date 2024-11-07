@@ -42,10 +42,10 @@ const ProjectGrid: React.FC = () => {
             <p className="text-gray-600 mb-4">{project.description}</p>
 
             {/* Logos */}
-            <div className="flex space-x-4 mb-4">
+            <div className="flex flex-wrap justify-center space-x-2 mb-2">
               {project.logos?.map((logo, logoIndex) => (
                 <a key={logoIndex} href={logo.url || '#'} target="_blank" rel="noopener noreferrer">
-                  <img src={logo.badge_url} alt={logo.name} />
+                  <img className="space-x-2 mb-2" src={logo.badge_url} alt={logo.name} />
                 </a>
               ))}
             </div>
