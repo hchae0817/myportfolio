@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavHome from '../NavHome';
-import { Project } from '../ProjectGrid';
+import { Project } from '../../data/projectData';
 
 interface BaseProjectProps {
     children?: ReactNode; // Accept children as a prop
@@ -46,12 +46,12 @@ const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
                     </div>
 
                     {/* Technologies Used & Logos */}
-                    {project.logos && (
+                    {project.tools && (
                         <div className="flex flex-col md:flex-row items-center mt-3 space-y-3 md:space-y-0 md:space-x-4">
                         <h2 className="text-xl font-semibold text-gray-800 mb-2 md:mb-0 w-60">
                             👩‍💻 Technologies Used
                         </h2>
-                        {project.logos.map((logo, index) => (
+                        {project.tools.map((logo, index) => (
                             <a key={index} href={logo.url || '#'} target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
                                 <img src={logo.badge_url} alt={logo.name} />
                             </a>

@@ -1,22 +1,6 @@
 import React from 'react';
-import { projectData } from './projectData';
 import { Link } from 'react-router-dom';
-
-interface Badge {
-  name: string;
-  badge_url: string;
-  url?: string;
-}
-
-export interface Project {
-  title: string;
-  description: string;
-  link: string;
-  logos?: Badge[];
-  repo: Badge;
-  id: number;
-}
-
+import { projectData, ProjectEnum } from '../data/projectData';
 
 const ProjectGrid: React.FC = () => {
 
@@ -35,7 +19,7 @@ const ProjectGrid: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
 
             {/* TODO: Add this to Project object e.g. previewImage */}
-            {project.id === 1 && (
+            {project.id === ProjectEnum.Animal && (
             <img src="/images/Animal_Desktop.png" className="mb-4" alt="Desktop" />
             )}
 
@@ -43,7 +27,7 @@ const ProjectGrid: React.FC = () => {
 
             {/* Logos */}
             <div className="flex flex-wrap justify-center space-x-2 mb-2">
-              {project.logos?.map((logo, logoIndex) => (
+              {project.tools?.map((logo, logoIndex) => (
                 <a key={logoIndex} href={logo.url || '#'} target="_blank" rel="noopener noreferrer">
                   <img className="space-x-2 mb-2" src={logo.badge_url} alt={logo.name} />
                 </a>
