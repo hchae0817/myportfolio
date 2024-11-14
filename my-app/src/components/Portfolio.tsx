@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import LanguageGrid from './LanguageGrid';
 import Wave from './ConnectSection';
 import ProjectGrid from './ProjectGrid';
+import myAnimation from '../data/waving.json'
+import Lottie from 'lottie-react';
 
 const Portfolio: React.FC = () => {
 
     const [showScrollUp, setShowScrollUp] = useState(false);
-
+    const projectsRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         // Show or hide scroll-up button based on scroll position
         const handleScroll = () => {
@@ -29,26 +31,52 @@ const Portfolio: React.FC = () => {
         window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     };
 
+    const scrollToProjects = () => {
+        if (projectsRef.current) {
+          projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
     return (
         <div className="bg-gray-100">
             {/*  <Wave/> */}
 
             {/* Welcome Section */}
-            <section className="h-screen flex items-center justify-center text-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4">
-                <div>
-                    <h1 className="text-5xl font-bold">Hello, I'm Hana Chae</h1>
-                    <p className="mt-4 text-lg">A passionate front-end developer crafting beautiful and responsive web apps.</p>
-                   <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script> 
+            <section className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 relative">
+                <div className="text-center max-w-2xl mx-auto space-y-6">
+                    <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                        Hello, I'm Hana Chae
+                    </h1>
+                    <p className="mt-2 text-md md:text-lg font-light">
+                        A passionate front-end developer crafting beautiful and responsive web apps.
+                    </p>
 
+                    {/* Lottie Animation */}
+                    <div className="flex justify-center mt-8">
+                        <div className="w-60 h-60 md:w-56 md:h-56">
+                            <Lottie animationData={myAnimation} loop={true} />
+                        </div>
+                    </div>
+
+                    {/* Scroll Down Icon */}
                     <div
                         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
-                        onClick={scrollToBottom}
+                        onClick={scrollToProjects}
                     >
-                        {/* <ChevronDownIcon className="h-10 w-10 text-white animate-bounce" /> */}
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="h-8 w-8 md:h-10 md:w-10 text-white animate-bounce"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                            />
                         </svg>
-
                     </div>
                 </div>
             </section>
@@ -66,11 +94,11 @@ const Portfolio: React.FC = () => {
             </section>
 
             {/* Projects Section */}
-            <section className="py-20 px-8 bg-gray-100">
+            <section className="py-20 px-8 bg-gray-100" ref={projectsRef}>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold text-gray-800">My Work</h2>
                     <div className="mt-10">
-                        <ProjectGrid/>
+                        <ProjectGrid />
                     </div>
                 </div>
             </section>
@@ -79,7 +107,7 @@ const Portfolio: React.FC = () => {
             {/* Skills Section */}
             <section className="py-20 px-8 bg-white">
                 <div className="max-w-4xl mx-auto text-center">
-                    <LanguageGrid /> 
+                    <LanguageGrid />
                 </div>
             </section>
 
