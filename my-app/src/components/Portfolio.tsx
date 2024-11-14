@@ -82,9 +82,8 @@ const Portfolio: React.FC = () => {
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold text-gray-800">Who I Am</h2>
                     <p className="mt-6 text-lg text-gray-600">
-                        I’m a front-end developer specializing in creating modern web applications with the latest technologies.
-                        With a strong foundation in HTML, CSS, JavaScript, and frameworks like React, I love building
-                        intuitive user interfaces that are both functional and aesthetically pleasing.
+                    I am an experienced full-stack developer with a strong background in designing, developing, and maintaining end-to-end software products.
+                    I am passionate about leveraging technology to solve complex problems and am always eager to learn and grow in dynamic, fast-paced environments.
                     </p>
                 </div>
             </section>

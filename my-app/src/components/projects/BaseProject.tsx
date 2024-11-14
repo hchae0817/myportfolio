@@ -11,13 +11,14 @@ interface BaseProjectProps {
 const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
     const navigate = useNavigate();
 
+    console.log(project.link || project.repo?.url, project.link)
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col">
             {/* Header */}
             <header className="bg-white shadow-md py-4">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
                     <h1 className="text-2xl font-bold text-gray-800">My Portfolio</h1>
-                   <NavHome />
+                    <NavHome />
                 </div>
             </header>
 
@@ -48,50 +49,55 @@ const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
                     {/* Technologies Used & Logos */}
                     {project.tools && (
                         <div className="flex flex-col md:flex-row items-center mt-3 space-y-3 md:space-y-0 md:space-x-4">
-                        <h2 className="text-xl font-semibold text-gray-800 mb-2 md:mb-0 w-60">
-                            👩‍💻 Technologies Used
-                        </h2>
-                        {project.tools.map((logo, index) => (
-                            <a key={index} href={logo.url || '#'} target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
-                                <img src={logo.badge_url} alt={logo.name} />
-                            </a>
-                        ))}
-                    </div>
+                            <h2 className="text-xl font-semibold text-gray-800 mb-2 md:mb-0 w-60">
+                                👩‍💻 Technologies Used
+                            </h2>
+                            {project.tools.map((logo, index) => (
+                                <a key={index} href={logo.url || '#'} target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
+                                    <img src={logo.badge_url} alt={logo.name} />
+                                </a>
+                            ))}
+                        </div>
                     )}
-                    
 
-                    <div className="flex flex-col md:flex-row items-center mt-3 space-y-3 md:space-y-0 md:space-x-4">
-                        <h2 className="text-xl font-semibold text-gray-800 mb-2 md:mb-0 w-60">
-                            👀 More Explore!
-                        </h2>
 
-                        {/* Live Project Button */}
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="h-8 flex items-center bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 15l4-4-4-4m12 8l4-4-4-4m-9 4h7a4 4 0 100-8h-7a4 4 0 100 8z" />
-                            </svg>
-                            View Live Project
-                        </a>
+                    {(project.link || project.repo?.url) && (
+                        <div className="flex flex-col md:flex-row items-center mt-3 space-y-3 md:space-y-0 md:space-x-4">
+                            <h2 className="text-xl font-semibold text-gray-800 mb-2 md:mb-0 w-60">
+                                👀 More Explore!
+                            </h2>
 
-                        {/* Repository Button */}
-                        <a
-                            href={project.repo.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="h-8 flex items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-md hover:bg-gray-900 transition-all duration-300"
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 6l6 6-6 6" />
-                            </svg>
-                            View Repository
-                        </a>
-                    </div>
+                            {/* Live Project Button */}
+                            {project.link && (
+                                <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="h-8 flex items-center bg-blue-600 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition-all duration-300"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 15l4-4-4-4m12 8l4-4-4-4m-9 4h7a4 4 0 100-8h-7a4 4 0 100 8z" />
+                                    </svg>
+                                    View Live Project
+                                </a>
+                            )}
+                            {/* Repository Button */}
 
+                            {project.repo?.url && (
+                                <a
+                                    href={project.repo.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="h-8 flex items-center bg-gray-800 text-white px-4 py-2 rounded-full shadow-md hover:bg-gray-900 transition-all duration-300"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 6l6 6-6 6" />
+                                    </svg>
+                                    View Repository
+                                </a>
+                            )}
+                        </div>
+                    )}
                 </div>
             </main>
 

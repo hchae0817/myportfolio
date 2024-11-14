@@ -5,6 +5,7 @@ import AnimalProject from "./AnimalProject";
 import BikeProject from "./BikeProject";
 import { projectData, ProjectEnum } from "../../data/projectData";
 import MonitorProject from "./MonitorProject";
+import TodoUKProject from "./todoUKProject";
 
 const HandleProject: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -26,6 +27,11 @@ const HandleProject: React.FC = () => {
   } else if (id === ProjectEnum.Monitor.toString()) {
     return (<BaseProject project={project}>
       <MonitorProject />
+    </BaseProject>
+    )
+  } else if (id === ProjectEnum.TodoUK.toString()) {
+    return (<BaseProject project={project}>
+      <TodoUKProject />
     </BaseProject>
     )
   } else {

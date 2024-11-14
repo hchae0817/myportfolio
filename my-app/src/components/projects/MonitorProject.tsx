@@ -45,10 +45,7 @@ const MonitorProject: React.FC = () => {
                             <li>Enhanced the company’s monitoring capabilities for more efficient data management.</li>
                         </p>
                     </div>
-
                 </div>
-
-
             </div>
 
         </>

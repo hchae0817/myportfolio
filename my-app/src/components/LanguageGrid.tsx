@@ -52,7 +52,7 @@ const LanguageGrid: React.FC = () => {
         {/* Render each tool type group */}
         {Object.keys(groupedToolData).map((type, typeIndex) => (
           <div key={typeIndex} className="mb-12">
-            <h3 className="text-2xl font-semibold text-indigo-700 mb-4">
+            <h3 className="text-xl font-semibold mb-4">
               {ToolTypeEnum[type as keyof typeof ToolTypeEnum]}
             </h3>
 
