@@ -3,8 +3,7 @@ import { Badge, BadgeTypeEnum, toolData, ToolTypeEnum } from "./toolData";
   export enum ProjectEnum {
     Animal,
     Bike,
-    Project3,
-    Project4,
+    Monitor,
   }
 
   export interface Project {
@@ -43,23 +42,11 @@ export const projectData = [
         }
     },
     {
-        id: ProjectEnum.Project3,
-        title: 'Project Three',
+        id: ProjectEnum.Monitor,
+        title: 'Real-time Monitoring System',
         description: 'A brief description of Project Three. Highlight key features and technologies used.',
         link: '#',
-        tools: toolData.filter(x => [BadgeTypeEnum.React, BadgeTypeEnum.JavaScript].includes(x.id)),
-        repo: {
-            name: "GitHub",
-            type: ToolTypeEnum.Technology,
-            url: "https://github.com/hchae0817/Animal-Dictionary",
-            badge_url: "https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"
-        }
-    },
-    {
-        id: ProjectEnum.Project4,
-        title: 'Project Four',
-        description: 'A brief description of Project Four. Highlight key features and technologies used.',
-        link: '#',
+        tools: toolData.filter(x => [BadgeTypeEnum.React, BadgeTypeEnum.TypeScript, BadgeTypeEnum.SQL, BadgeTypeEnum.MicrosoftSQLServer, BadgeTypeEnum.CSharp, BadgeTypeEnum.NET].includes(x.id)),
         repo: {
             name: "GitHub",
             type: ToolTypeEnum.Technology,

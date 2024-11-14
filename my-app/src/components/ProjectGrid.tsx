@@ -19,9 +19,9 @@ const ProjectGrid: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h3>
 
             {/* TODO: Add this to Project object e.g. previewImage */}
-            {project.id === ProjectEnum.Animal && (
+            {/* {project.id === ProjectEnum.Animal && (
             <img src="/images/Animal_Desktop.png" className="mb-4" alt="Desktop" />
-            )}
+            )} */}
 
             <p className="text-gray-600 mb-4">{project.description}</p>
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import LanguageGrid from './LanguageGrid';
-import Wave from './ConnectSection';
 import ProjectGrid from './ProjectGrid';
 import myAnimation from '../data/waving.json'
 import Lottie from 'lottie-react';
@@ -9,6 +8,7 @@ const Portfolio: React.FC = () => {
 
     const [showScrollUp, setShowScrollUp] = useState(false);
     const projectsRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         // Show or hide scroll-up button based on scroll position
         const handleScroll = () => {
@@ -25,10 +25,6 @@ const Portfolio: React.FC = () => {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    const scrollToBottom = () => {
-        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     };
 
     const scrollToProjects = () => {
