@@ -44,7 +44,7 @@ const Portfolio: React.FC = () => {
                         Hello, I'm Hana Chae
                     </h1>
                     <p className="mt-2 text-md md:text-lg font-light">
-                        A passionate front-end developer crafting beautiful and responsive web apps.
+                        I’m a full-stack developer crafting seamless, scalable web apps.
                     </p>
 
                     {/* Lottie Animation */}
