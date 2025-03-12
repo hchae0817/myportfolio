@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import LanguageGrid from './LanguageGrid';
 import ProjectGrid from './ProjectGrid';
-import myAnimation from '../data/waving.json'
-import Lottie from 'lottie-react';
+import Experience from './Experience';
+import Introduction from './Introduction';
 
 const Portfolio: React.FC = () => {
 
@@ -40,19 +40,7 @@ const Portfolio: React.FC = () => {
             {/* Welcome Section */}
             <section className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 relative">
                 <div className="text-center max-w-2xl mx-auto space-y-6">
-                    <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                        Hello, I'm Hana Chae
-                    </h1>
-                    <p className="mt-2 text-md md:text-lg font-light">
-                        I’m a full-stack developer crafting seamless, scalable web apps.
-                    </p>
-
-                    {/* Lottie Animation */}
-                    <div className="flex justify-center mt-8">
-                        <div className="w-60 h-60 md:w-56 md:h-56">
-                            <Lottie animationData={myAnimation} loop={true} />
-                        </div>
-                    </div>
+                    <Introduction />
 
                     {/* Scroll Down Icon */}
                     <div
@@ -88,8 +76,12 @@ const Portfolio: React.FC = () => {
                 </div>
             </section>
 
+            <div className="mt-10">
+                <Experience/>
+            </div>
+
             {/* Projects Section */}
-            <section className="py-20 px-8 bg-gray-100" ref={projectsRef}>
+            <section className="py-20 px-8 bg-white" ref={projectsRef}>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl font-semibold text-gray-800">My Work</h2>
                     <div className="mt-10">
@@ -100,7 +92,7 @@ const Portfolio: React.FC = () => {
 
 
             {/* Skills Section */}
-            <section className="py-20 px-8 bg-white">
+            <section className="py-20 px-8 bg-grey-100">
                 <div className="max-w-4xl mx-auto text-center">
                     <LanguageGrid />
                 </div>

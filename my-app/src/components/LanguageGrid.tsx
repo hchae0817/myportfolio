@@ -84,15 +84,12 @@ const LanguageGrid: React.FC = () => {
                   {showStatus[key] && (
                     <div className="flex flex-wrap justify-center gap-4 mt-2">
                       {tools.map((logo: Badge, logoIndex: number) => (
-                        <a
+                        <div
                           key={logoIndex}
-                          href={logo.url || '#'}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className="flex items-center"
                         >
                           <img src={logo.badge_url} alt={logo.name} />
-                        </a>
+                        </div>
                       ))}
                     </div>
                   )}

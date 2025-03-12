@@ -53,9 +53,9 @@ const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
                                 👩‍💻 Technologies Used
                             </h2>
                             {project.tools.map((logo, index) => (
-                                <a key={index} href={logo.url || '#'} target="_blank" rel="noopener noreferrer" className="transition-transform transform hover:scale-110">
+                                <div key={index} className="transition-transform transform hover:scale-110">
                                     <img src={logo.badge_url} alt={logo.name} />
-                                </a>
+                                </div>
                             ))}
                         </div>
                     )}
