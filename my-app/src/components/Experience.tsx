@@ -4,49 +4,57 @@ const Experience = () => {
   const experiences = [
     {
       company: "Insightful Technology",
-      logo: "/logos/insightful.png", // Replace with actual logo path
+      logo: "/logos/insightful.png",
       role: "Software Engineer",
-      period: "08.2022 - Present",
+      period: "Aug 2022 – Present",
       highlights: [
-        "Developed a real-time dashboard with React, TypeScript, and Tailwind, improving data visualization for 30+ clients.",
-        "Achieved 50% faster load times through virtualized rendering and efficient state management.",
-        "Established Jest & React Testing Library, boosting front-end test coverage from 15% to 65%.",
-        "Worked with designers & product teams to enhance UX, reducing customer complaints by 90%.",
+        "Built and maintained full-stack React/TypeScript & C#/.NET applications for legal & fintech clients, improving initial load times by 50% and render speed by 80%.",
+        "Modernized legacy UI library & API services, cutting bundle size and load times by 30% and eliminating 30% of duplicated code.",
+        "Designed secure REST APIs with audit trails and compliance controls, reducing data-related incidents by 40%.",
+        "Championed CI/CD and Jest testing, raising front-end coverage to 65% and slashing hotfix frequency by 40%."
       ],
     },
     {
-      company: "Samsung", 
-      logo: "/logos/samsung.png", // Replace with actual logo path
+      company: "Samsung SDS",
+      logo: "/logos/samsung.png",
       role: "Data Analyst Intern",
-      period: "08.2018 - 08.2018",
+      period: "Aug 2018 - Sep 2018",
       highlights: [
-        "Enhanced adaptability and cross-cultural communication by collaborating with diverse international teams.",
-        "Attended global meetings and documented key insights to better understand market trends and business strategies.",
+        "Developed and documented Big Data monitoring protocols in Samsung’s data center, enhancing system reliability.",
+        "Collaborated with senior leadership and international teams to capture market insights and optimize network operations."
       ],
     },
   ];
 
   return (
-    <section className="py-20 px-8 bg-gray-100">
-      <div className="max-w-5xl mx-auto">
+    <section className="py-20 px-4 bg-gray-100">
+      <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 px-2">
           <h2 className="text-3xl font-semibold text-gray-800">Professional Experience</h2>
         </div>
 
-   {/* Timeline */}
-   <div className="relative border-l-4 border-blue-500 pl-6 space-y-12">
+        {/* Timeline */}
+        <div className="relative border-l-4 border-blue-500 pl-6 space-y-12 w-full">
           {experiences.map((exp, index) => (
-            <div key={index} className="relative flex items-start gap-6">
+            <div
+              key={index}
+              className="relative flex flex-col md:flex-row items-start gap-6 w-full"
+            >
               {/* Timeline Indicator & Logo */}
-              <div className="flex items-center gap-4 -ml-8">
-                <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-                <img src={exp.logo} alt={exp.company} className="w-28 h-24 object-contain" />
+              <div className="flex items-center md:flex-col gap-4 -ml-8 md:ml-0 md:mr-8">
+                <div className="w-4 h-4 bg-blue-500 rounded-full mt-1 md:mt-0"></div>
+                <img
+                  src={exp.logo}
+                  alt={exp.company}
+                  className="w-24 h-20 object-contain mx-auto md:mx-0"
+                />
               </div>
-              <div>
+
+              {/* Content with fixed max width for readability */}
+              <div className="flex-1 max-w-3xl">
                 <h3 className="text-2xl font-semibold text-gray-800">{exp.role}</h3>
                 <p className="text-gray-600">{exp.company} | {exp.period}</p>
-                {/* Experience Highlights */}
                 <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
                   {exp.highlights.map((highlight, i) => (
                     <li key={i} className="leading-relaxed">{highlight}</li>

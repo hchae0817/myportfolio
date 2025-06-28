@@ -11,7 +11,21 @@ interface BaseProjectProps {
 const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
     const navigate = useNavigate();
 
-    console.log(project.link || project.repo?.url, project.link)
+
+  const scrollToProjectsSection = () => {
+    const section = document.getElementById('projects');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleBack = () => {
+    // Navigate back to the portfolio home
+    navigate('/');
+    // After navigation, scroll to the Projects section
+    setTimeout(() => scrollToProjectsSection(), 100);
+  }
+
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col">
             {/* Header */}
@@ -27,7 +41,7 @@ const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
 
                     {/* Back Button */}
                     <button
-                        onClick={() => navigate(-1)}
+                        onClick={() => handleBack()}
                         className="text-gray-500 hover:text-blue-600 mb-6 flex items-center"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
