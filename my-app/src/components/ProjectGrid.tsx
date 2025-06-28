@@ -12,16 +12,16 @@ const ProjectGrid: React.FC = () => {
       {projectData.map((project, index) => (
         <div
           key={index}
-          className="bg-white shadow-xl rounded-lg p-6 transition-transform duration-300 transform hover:scale-105 flex flex-col h-full"
+          className="bg-background shadow-xl rounded-lg p-6 transition-transform duration-300 transform hover:scale-105 flex flex-col h-full"
         >
-          <h3 className="text-xl font-semibold text-gray-800 mb-2 min-h-[60px]">{project.title}</h3>
+          <h3 className="text-xl font-semibold text-foreground/75 mb-2 min-h-[60px]">{project.title}</h3>
 
           {/* Preview Image (optional) */}
           {/* {project.id === ProjectEnum.Animal && (
             <img src="/images/Animal_Desktop.png" className="mb-4" alt="Desktop" />
           )} */}
 
-          <p className="text-gray-600 mb-4">{project.description}</p>
+          <p className="text-foreground/50 mb-4">{project.description}</p>
 
           {/* Logos */}
           <div className="flex flex-wrap justify-center space-x-2 mb-4">

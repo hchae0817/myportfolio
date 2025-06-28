@@ -65,7 +65,7 @@ const Portfolio: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-gray-100">
+        <div className="bg-background">
             {/* Intro Section */}
             <section
                 ref={introRef}
@@ -82,23 +82,22 @@ const Portfolio: React.FC = () => {
             <section
                 ref={whoAmIRef}
                 id="whoami"
-                className="relative py-20 px-8 bg-white"
+                className="relative py-20 px-8 bg-background text-foreground transition-colors"
             >
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-semibold text-gray-800">Who I Am</h2>
-                    <p className="mt-6 text-lg text-gray-600">
+                    <h2 className="text-3xl font-semibold">Who I Am</h2>
+                    <p className="mt-6 text-lg text-foreground/75">
                         I am an experienced full-stack developer with a strong background in designing, developing, and maintaining end-to-end software products. I am passionate about leveraging technology to solve complex problems and am always eager to learn and grow in dynamic, fast-paced environments.
                     </p>
                 </div>
                 <ScrollDown onClick={() => scrollToSection(experienceRef, 'experience')} />
-
             </section>
 
             {/* Experience Section */}
             <div
                 ref={experienceRef}
                 id="experience"
-                className="relative mt-10 bg-gray-100"
+                className="relative mt-10 bg-background text-foreground transition-colors"
             >
                 <Experience />
                 <ScrollDown onClick={() => scrollToSection(projectsRef, 'projects')} />
@@ -109,10 +108,10 @@ const Portfolio: React.FC = () => {
             <section
                 ref={projectsRef}
                 id="projects"
-                className="relative py-20 px-8 bg-white"
+                className="relative py-20 px-8 bg-background/100 text-foreground transition-colors"
             >
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-semibold text-gray-800">My Work</h2>
+                    <h2 className="text-3xl font-semibold text-foreground/75">My Work</h2>
                     <div className="mt-10">
                         <ProjectGrid />
                     </div>
@@ -125,7 +124,7 @@ const Portfolio: React.FC = () => {
             <section
                 ref={techRef}
                 id="technology"
-                className="relative py-20 px-8 bg-gray-100"
+                className="relative py-20 px-8 bg-background text-foreground transition-colors"
             >
                 <div className="max-w-4xl mx-auto text-center">
                     <LanguageGrid />

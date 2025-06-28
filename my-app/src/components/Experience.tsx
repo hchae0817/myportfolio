@@ -27,11 +27,11 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gray-100">
+    <section className="py-20 px-4  bg-background text-foreground">
       <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className="text-center mb-12 px-2">
-          <h2 className="text-3xl font-semibold text-gray-800">Professional Experience</h2>
+          <h2 className="text-3xl font-semibold text-foreground">Professional Experience</h2>
         </div>
 
         {/* Timeline */}
@@ -53,11 +53,13 @@ const Experience = () => {
 
               {/* Content with fixed max width for readability */}
               <div className="flex-1 max-w-3xl">
-                <h3 className="text-2xl font-semibold text-gray-800">{exp.role}</h3>
-                <p className="text-gray-600">{exp.company} | {exp.period}</p>
-                <ul className="mt-4 space-y-2 text-gray-700 list-disc list-inside">
+                <h3 className="text-2xl font-semibold text-foreground">{exp.role}</h3>
+                <p className="mt-1 text-foreground/75">{exp.company} | {exp.period}</p>
+                <ul className="mt-4 space-y-2 text-foreground list-disc list-inside">
                   {exp.highlights.map((highlight, i) => (
-                    <li key={i} className="leading-relaxed">{highlight}</li>
+                    <li key={i} className="leading-relaxed">
+                      {highlight}
+                    </li>
                   ))}
                 </ul>
               </div>

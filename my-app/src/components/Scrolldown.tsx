@@ -6,7 +6,7 @@ interface ScrollDownProps {
   color?: string;
 }
 
-const ScrollDown: React.FC<ScrollDownProps> = ({ onClick, color = 'gray-800' }) => (
+const ScrollDown: React.FC<ScrollDownProps> = ({ onClick, color = 'text-foreground' }) => (
   <div
     className="absolute bottom-2 left-1/2 transform -translate-x-1/2 cursor-pointer"
     onClick={onClick}

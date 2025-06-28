@@ -12,6 +12,21 @@ code {
     monospace;
 }
 
+@layer base {
+  :root {
+    --bg: 255,255,255;
+    --fg: 33,33,33;
+    --accent: 59,130,246;
+    --brand: 59, 130, 246;
+  }
+  .dark {
+    --bg: 17,24,39;
+    --fg: 243,244,246;
+    --accent: 96,165,250;
+    --brand: 96, 165, 250;
+  }
+}
+
 
 @tailwind base;
 @tailwind components;

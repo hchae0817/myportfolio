@@ -47,7 +47,7 @@ const LanguageGrid: React.FC = () => {
   return (
     <section className="py-16 px-8">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold text-gray-800 mb-10">Technologies I Use</h2>
+        <h2 className="text-3xl font-semibold text-foreground/75 mb-10">Technologies I Use</h2>
 
         {/* Render each tool type group */}
         {Object.keys(groupedToolData).map((type, typeIndex) => (

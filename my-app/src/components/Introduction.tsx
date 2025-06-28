@@ -8,6 +8,16 @@ const Introduction = () => {
     const [roleIndex, setRoleIndex] = useState(0);
     const [text, setText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
+    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+    // Initialize theme on mount
+    useEffect(() => {
+        const stored = localStorage.getItem('theme') as 'light' | 'dark' | null;
+        const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const initial = stored || prefers;
+        setTheme(initial);
+        document.documentElement.classList.toggle('dark', initial === 'dark');
+    }, []);
 
     useEffect(() => {
         const role = roles[roleIndex];
@@ -29,12 +39,26 @@ const Introduction = () => {
         return () => clearTimeout(timeout);
     }, [text, isDeleting, roleIndex]);
 
+    const toggleTheme = () => {
+        const next = theme === 'light' ? 'dark' : 'light';
+        setTheme(next);
+        document.documentElement.classList.toggle('dark', next === 'dark');
+        localStorage.setItem('theme', next);
+    };
+
     return (
         <section className="text-center py-20 px-8">
+            <button
+                onClick={toggleTheme}
+                className="absolute top-4 right-4 p-2 bg-gray-200 dark:bg-gray-700 rounded transition"
+                aria-label="Toggle Dark Mode"
+            >
+                {theme === 'light' ? '🌞' : '🌜'}
+            </button>
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 Hello, I'm Hana Chae
             </h1>
-            <p className="mt-2 text-md md:text-lg font-light">
+            <p className="mt-2 text-md md:text-lg font-light text-foreground/75">
                 I’m a full-stack developer crafting seamless, scalable web apps.
             </p>
 
