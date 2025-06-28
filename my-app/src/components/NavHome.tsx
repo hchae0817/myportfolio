@@ -10,7 +10,7 @@ const NavHome = () => {
         href="/"
         onMouseEnter={() => setIsTooltipVisible(true)} 
         onMouseLeave={() => setIsTooltipVisible(false)} 
-        className="text-gray-600 hover:text-blue-600 text-xl"
+        className="text-foreground/50 hover:text-blue-600 text-xl mr-4"
       >
         🛖
       </a>
@@ -19,7 +19,7 @@ const NavHome = () => {
       {isTooltipVisible && (
         <div
           role="tooltip"
-          className="absolute z-10 inline-block px-3 py-2 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-100 tooltip dark:bg-gray-700"
+          className="absolute z-10 mr-4 inline-block px-3 py-2 text-sm font-medium text-foreground bg-background/90 rounded-lg shadow-sm opacity-100 tooltip dark:bg-gray-700"
           style={{
             top: '100%', 
             left: '50%',

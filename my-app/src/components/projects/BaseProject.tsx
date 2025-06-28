@@ -27,16 +27,16 @@ const BaseProject: React.FC<BaseProjectProps> = ({ children, project }) => {
   }
 
     return (
-        <div className="bg-gray-100 min-h-screen flex flex-col">
+        <div className="bg-background/20 min-h-screen flex flex-col">
             {/* Header */}
-            <header className="bg-white shadow-md py-4">
+            <header className="bg-background shadow-md py-4">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
-                    <h1 className="text-2xl font-bold text-gray-800">My Portfolio</h1>
+                    <h1 className="text-2xl font-bold text-foreground ml-4">My Portfolio</h1>
                     <NavHome />
                 </div>
             </header>
 
-            <main className="flex-grow bg-gray-100 py-12 px-6">
+            <main className="flex-grow bg-background/20 py-12 px-6">
                 <div className="max-w-4xl mx-auto">
 
                     {/* Back Button */}
